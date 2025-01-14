@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazones de Colores</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        .heart {
+            font-size: 50px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 1s;
+        }
+        .purple-heart {
+            color: #800080;
+        }
+        .green-heart {
+            color: #008000;
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #008000;
+        }
+        #hearts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Encuentra el corazón verde</h1>
+    <p>Clickea sobre los corazones lilas hasta encontrar el verde</p>
+    
+    <div id="hearts">
+        <span class="heart purple-heart" id="heart1">💜</span>
+        <span class="heart purple-heart" id="heart2">💜</span>
+        <span class="heart purple-heart" id="heart3">💜</span>
+        <span class="heart purple-heart" id="heart4">💜</span>
+        <span class="heart purple-heart" id="heart5">💜</span>
+        <span class="heart purple-heart" id="heart6">💜</span>
+        <span class="heart green-heart" id="green-heart" onclick="mostrarMensaje()">💚</span>
+        <span class="heart purple-heart" id="heart7">💜</span>
+    </div>
+
+    <div id="message">
+        <p>¡Felicidades ganaste un código de canje 🎉 2101🎉</p>
+    </div>
+
+    <script>
+        // Función para hacer que los corazones giren
+        function girarCorazones() {
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+            });
+        }
+
+        // Hacer que los corazones giren cada segundo
+        setInterval(girarCorazones, 1000);
+
+        // Función que muestra el mensaje cuando se encuentra el corazón verde
+        function mostrarMensaje() {
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+
+</body>
+  </html>
